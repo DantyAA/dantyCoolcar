@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<map name="index_map" class="index_map">
+
+</map>
+<cover-view >
+    <cover-image src="../../miniprogram/material/index_map/user_button.png"></cover-image>
+
+</cover-view>>

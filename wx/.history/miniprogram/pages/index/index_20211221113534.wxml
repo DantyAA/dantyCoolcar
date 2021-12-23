@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<map name="index_map" class="index_map">
+
+</map>
+<cover-view >
+    <cover-image src=""></cover-image>
+
+</cover-view>>

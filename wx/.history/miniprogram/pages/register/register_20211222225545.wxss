@@ -1,0 +1,11 @@
+/* register/register.wxss */
+
+
+
+.lic-tmpl{
+    opacity: .2;
+}
+
+.cuIcon-camerafill{
+    
+}

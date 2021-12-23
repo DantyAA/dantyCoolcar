@@ -1,0 +1,28 @@
+/* register/register.wxss */
+
+
+
+.lic-tmpl{
+    opacity: .2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.cuIcon-camerafill{
+    font-size: 180rpx;
+    position: absolute;
+
+
+}
+
+.lic-content{
+    width: 650rpx;
+    height: 420rpx;
+    position: relative;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.in

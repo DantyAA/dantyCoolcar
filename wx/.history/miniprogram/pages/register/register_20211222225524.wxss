@@ -1,0 +1,7 @@
+/* register/register.wxss */
+
+
+
+.lic-tmpl{
+    opacity: .2;
+}

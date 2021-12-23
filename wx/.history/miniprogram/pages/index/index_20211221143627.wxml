@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<map name="index_map" class="index_map">
+    <cover-view class="icon" >
+        <cover-image src="../../material/index_map/user_button.png" ></cover-image>
+        <cover-image src="../../material/index_map/current_position.png"></cover-image>
+    </cover-view>
+</map>

@@ -1,0 +1,9 @@
+<!-- <map class="index_map"> -->
+    <view class="icon">
+        <image src="../../material/index_map/user_button.png" style="width:60rpx;height:60rpx" ></image>
+        <image src="../../material/index_map/current_position.png" style="width:60rpx;height:60rpx"></image>
+    </view>
+    <view class="btn-cationer bg-grey">
+        扫码
+    </view>
+<!-- </map> -->

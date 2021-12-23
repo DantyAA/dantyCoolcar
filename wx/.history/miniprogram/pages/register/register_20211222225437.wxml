@@ -1,0 +1,7 @@
+<view class="container">
+    <view wx:if="{{!hasLicImg}}">
+    <image class="lic-tmpl" src="../../material/register/driving_license.jpeg"></image>
+    <view class="cuIcon-camerafill lg text-fray"></view>
+    <view class="instruction">请上传照片</view>
+    </view>
+</view>

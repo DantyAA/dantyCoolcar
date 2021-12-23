@@ -1,0 +1,18 @@
+<map 
+id="map"
+latitude="{{location.latitude}}"
+longitude="{{location.longitude}}"
+scale="{{scale}}"
+setting = "{{swtting}}"
+enable-overlooking="{{isOverLooking}}"
+enable-3D="{{is3D}}"
+markers="{{markers}}"
+>
+    <cover-view class="icon">
+        <cover-image ></cover-image>
+        <cover-image ></cover-image>
+    </cover-view>
+</map>
+<view class="btn-cationer bg-grey round" bindtap="">
+    扫   码
+</view>
