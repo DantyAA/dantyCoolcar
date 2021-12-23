@@ -1,12 +1,14 @@
 /* register/register.wxss */
 
-
+.stretch{
+    width: 100%;
+    height: 100%;
+}
 
 .lic-tmpl{
     opacity: .2;
     position: absolute;
-    width: 100%;
-    height: 100%;
+
 }
 
 .cuIcon-camerafill{
@@ -30,4 +32,13 @@
 }
 .container{
     padding-top: 50rpx;
+}
+
+.lic-form{
+    margin-top: 100rpx;
+    width: 650rpx;  
+}
+
+.cu-form-group .title{
+    min-width: calc(4em + 30rpx);
 }
