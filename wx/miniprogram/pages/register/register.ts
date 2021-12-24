@@ -5,13 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    licImgURL:undefined as string | undefined,
+    licImgURL:'',
     //licImgURL:"../../material/register/driving_license.jpeg",
     genders:['未知','男','女','不男不女','我不说'],
     genderIndex: 0,
     date:"1995-05-03",
     lic_name:'',
     lic_number:'',
+    state: 'UNSUBMITTED' as 'UNSUBMITTED'|'PEDING'|'VERIFIED'
   },
 
   onUploadLic(){
@@ -43,6 +44,32 @@ Page({
   DateChange(e:any) {
     this.setData({
       date: e.detail.value
+    })
+  },
+
+  onSubmit(){
+    this.setData({
+      state: 'PEDING',
+    })
+    setTimeout(()=>{
+      this.onLicVerified()
+      },3000
+    )
+  },
+  unSubmit(){
+    this.setData({
+      state: 'UNSUBMITTED',
+      licImgURL: ''
+    })
+  },
+  onLicVerified(){
+    this.setData({
+      state:'VERIFIED'
+    })
+  },
+  confirm(){
+    wx.redirectTo({
+      url:"../lock/lock"
     })
   }
 })

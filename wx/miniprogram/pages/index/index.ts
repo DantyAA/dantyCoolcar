@@ -43,8 +43,8 @@ Page({
         width:50,
         height:50
       }
-    ]
-
+    ],
+    avatarURL:''
   },
   // 事件处理函数
   bindViewTap() {
@@ -59,6 +59,11 @@ Page({
         canIUseGetUserProfile: true
       })
     }
+
+    this.setData({
+      avatarURL:wx.getStorageSync("userinfo").avatarUrl || false
+    })
+    
   },
 
 

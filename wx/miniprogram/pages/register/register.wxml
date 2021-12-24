@@ -7,19 +7,20 @@
     <block wx:else>
         <view class="lic-content">
             <image class="stretch" src="{{licImgURL}}"/>
+            <image wx:if="{{state==='VERIFIED'}}" class="right" src="../../material/register/right.png" />
         </view>
         <view class="lic-form">
             <view class="cu-form-group margin-top">
 		        <view class="title">姓名</view>
-		        <input placeholder="例如：张三" value="{{lic_name}}"></input>
+		        <input placeholder="例如：张三" value="{{lic_name}}" disabled="{{state!=='UNSUBMITTED'}}"></input>
 	        </view>
             <view class="cu-form-group">
 		        <view class="title">驾驶证号</view>
-		        <input placeholder="纯数字驾驶证号" value="{{lic_number}}"></input>
+		        <input placeholder="纯数字驾驶证号" value="{{lic_number}}" disabled="{{state!=='UNSUBMITTED'}}"></input>
 	        </view>
             <view class="cu-form-group">
 		        <view class="title">性别</view>
-                <picker bindchange="onGenderChange" value="{{genderIndex}}" range="{{genders}}">
+                <picker bindchange="onGenderChange" value="{{genderIndex}}" range="{{genders}}" disabled="{{state!=='UNSUBMITTED'}}">
 			        <view class="picker">
 				        {{genders[genderIndex]}}
 			        </view>
@@ -27,20 +28,24 @@
 	        </view>
             <view class="cu-form-group">
 		        <view class="title">出生日期</view>
-                <picker mode="date" value="{{date}}" start="1995-09-01" end="2020-09-01" bindchange="DateChange">
+                <picker mode="date" value="{{date}}" start="1995-09-01" end="2020-09-01" bindchange="DateChange" disabled="{{state!=='UNSUBMITTED'}}">
                     <view class="picker">
 				        {{date}}
 			        </view>
                 </picker>
             </view>
         </view>
-         <button class="cu-btn bg-red margin-tb-sm lg margin-top-xl">
+        <button wx:if="{{state==='UNSUBMITTED'}}" class="cu-btn bg-red margin-tb-sm lg margin-top-xl" bindtap='onSubmit'>
         递交审查
         </button>
+        <button wx:if="{{state==='PEDING'}}" class="cu-btn block line-blue margin-tb-sm lg" disabled>
+        审查中
+        </button>
+        <button wx:if="{{state==='VERIFIED'}}" class="cu-btn bg-red margin-tb-sm lg margin-top-xl" bindtap='confirm'>
+        确认信息
+        </button>
+        <button wx:if="{{state==='VERIFIED'}}" class="cu-btn bg-red margin-tb-sm lg margin-top-xl" bindtap='unSubmit'>
+        重新审查
+        </button>
     </block>
-
-   
-
-
-
 </view>

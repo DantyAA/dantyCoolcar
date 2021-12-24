@@ -9,7 +9,8 @@ enable-3D="{{is3D}}"
 markers="{{markers}}"
 >
     <cover-view class="icon">
-        <cover-image src="../../material/index_map/user_button.png" style="width:60rpx;height:60rpx" ></cover-image>
+        <cover-image wx:if="{{!avatarURL}}" src="../../material/index_map/user_button.png" style="width:60rpx;height:60rpx" ></cover-image>
+        <cover-image wx:if="{{avatarURL}}" src="{{avatarURL}}" class="round" style="width:60rpx;height:60rpx" ></cover-image>
         <cover-image src="../../material/index_map/current_position.png" style="width:60rpx;height:60rpx" bindtap="getLocation"></cover-image>
     </cover-view>
 </map>

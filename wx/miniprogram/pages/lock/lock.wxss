@@ -1,0 +1,48 @@
+/* lock/lock.wxss */
+
+.container{
+    height: 100%;
+    padding: 140rpx;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lockHint{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300rpx;
+}
+
+.hintText{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+}   
+
+.getUserPro{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hintPic{
+    height: 180rpx;
+}
+
+.switch-container{
+    display: flex;
+    align-items: center;
+    width: 8em;
+    justify-content: space-between;
+}
+
+
+page{
+    height: 100%;
+    width: 100%;
+}

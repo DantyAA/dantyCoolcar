@@ -1,0 +1,21 @@
+<view class="container">
+    <view class="lockHint">
+        <image class="hintPic" src="../../material/lock/lock_car.png" />
+        <view class="hintText">
+            <text class="hintText_1">安全驾驶是用户的责任</text>
+            <text class="hintText_2">请将车辆停放在停车位内</text>
+        </view>
+    </view>
+    <view class="getUserPro">
+        <button wx:if="{{!avatarURL}}" class="cu-avatar round lg bg-grey margin-xs" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">
+            <view class="cuIcon-people"></view>
+        </button>
+        <view class="switch-container" wx:if="{{avatarURL}}">
+            <image  class="cu-avatar round lg bg-grey margin-xs" src="{{avatarURL}}"/>
+            <switch bindchange="onShareLocation" checked="{{shareLocation}}"/>
+        </view>
+        <view class="nargin-top">实时展示我的头像</view>
+    </view>
+    <button class="hintBtn bg-grey lg round" style="margin: 0;width: 80%" bindtap="onUnlockTap">立即开锁</button>
+</view>
+
