@@ -11,8 +11,8 @@ Page({
     shareLocation:false,
   },
 
-  async onLoad(){
-
+  async onLoad(opt){
+    console.log("unlocking car",opt.car_id)
     this.setData({
       avatarURL:wx.getStorageSync("userinfo").avatarUrl || false,
       shareLocation: wx.getStorageSync(shareLocationKey) || false
@@ -25,7 +25,6 @@ Page({
     console.log("avatarURL=",this.data.avatarURL)
     const userInfo: WechatMiniprogram.UserInfo = e.detail.userInfo
     if (userInfo){
-      console.log(userInfo)
       wx.setStorageSync("userinfo",userInfo)
       this.setData({
       avatarURL:userInfo?.avatarUrl
@@ -40,17 +39,41 @@ Page({
   },
 
   onUnlockTap(){
-    wx.showLoading({
-      title:"等待开锁中",
-      mask:true,
+    wx.getLocation({
+      type: 'gcj02',
+      success: loc=>{
+        console.log("starting a trip ",{
+          location:{
+            latitude:loc.latitude,
+            longitude:loc.longitude
+          },
+          avatarURL:this.data.shareLocation? this.data.avatarURL:'',
+        })
+
+        const tripID = 'trip456'
+
+        wx.showLoading({
+          title:"等待开锁中",
+          mask:true,
+        })
+
+        setTimeout(()=>{
+          wx.redirectTo({
+            url:`../driving/driving?trip_id=${tripID}`,
+            complete:()=>{
+              wx.hideLoading()
+            }
+          })
+        },2000)
+      },
+      fail:()=>{
+        wx.showToast({
+          icon:'none',
+          title: '请前往设置页面授权未知信息' 
+        })
+      }
     })
-    setTimeout(()=>{
-      wx.redirectTo({
-        url:"../driving/driving",
-        complete:()=>{
-          wx.hideLoading()
-        }
-      })
-    },2000)
+    
+
   },
 })

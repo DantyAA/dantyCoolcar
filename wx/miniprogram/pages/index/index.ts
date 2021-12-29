@@ -58,15 +58,17 @@ Page({
       this.setData({
         canIUseGetUserProfile: true
       })
-    }
-
-    this.setData({
-      avatarURL:wx.getStorageSync("userinfo").avatarUrl || false
-    })
-    
+    } 
   },
 
-
+  onShow(){
+    if (wx.getStorageSync("userinfo").avatarUrl){
+      console.log("112233")
+      this.setData({
+        avatarURL:wx.getStorageSync("userinfo").avatarUrl || false
+      })
+    }
+  },
 
 
   moverCars(){
@@ -97,11 +99,13 @@ Page({
   },
   
 
-  onScanClicked(){
+  onScanTap(){
     wx.scanCode({ 
       success: res=>{
+        const carID = 'car123'
+        const redirectURL = `../lock/lock?car_id=${carID}`
         wx.navigateTo({
-          url:"../register/register"
+          url:`../register/register?redirect=${encodeURIComponent(redirectURL)}`
         })
       },
       fail:console.log
@@ -117,5 +121,11 @@ Page({
       latitude:this.data.location.latitude, 
     })
 
+  },
+
+  onMyTripsTap(){
+    wx.navigateTo({
+      url:"../myTrip/myTrip",
+    })
   }
 })

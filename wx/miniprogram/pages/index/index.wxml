@@ -9,11 +9,10 @@ enable-3D="{{is3D}}"
 markers="{{markers}}"
 >
     <cover-view class="icon">
-        <cover-image wx:if="{{!avatarURL}}" src="../../material/index_map/user_button.png" style="width:60rpx;height:60rpx" ></cover-image>
-        <cover-image wx:if="{{avatarURL}}" src="{{avatarURL}}" class="round" style="width:60rpx;height:60rpx" ></cover-image>
+        <cover-image src="{{avatarURL?avatarURL:'../../material/index_map/user_button.png'}}" class="round" style="width:60rpx;height:60rpx" bindtap="onMyTripsTap"></cover-image>
         <cover-image src="../../material/index_map/current_position.png" style="width:60rpx;height:60rpx" bindtap="getLocation"></cover-image>
     </cover-view>
 </map>
-<view class="btn-cationer bg-grey round" bindtap="onScanClicked">
+<view class="btn-cationer bg-grey round" bindtap="onScanTap">
     扫   码
 </view>

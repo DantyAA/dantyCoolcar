@@ -20,7 +20,7 @@
 	        </view>
             <view class="cu-form-group">
 		        <view class="title">性别</view>
-                <picker bindchange="onGenderChange" value="{{genderIndex}}" range="{{genders}}" disabled="{{state!=='UNSUBMITTED'}}">
+                <picker bindchange="onGenderChange" value="{{genderIndex}}" range="{{genders}}"  disabled="{{state!=='UNSUBMITTED'}}">
 			        <view class="picker">
 				        {{genders[genderIndex]}}
 			        </view>
@@ -41,8 +41,11 @@
         <button wx:if="{{state==='PEDING'}}" class="cu-btn block line-blue margin-tb-sm lg" disabled>
         审查中
         </button>
-        <button wx:if="{{state==='VERIFIED'}}" class="cu-btn bg-red margin-tb-sm lg margin-top-xl" bindtap='confirm'>
+        <button wx:if="{{redirectURL && state==='VERIFIED'}}" class="cu-btn bg-red margin-tb-sm lg margin-top-xl" bindtap='confirm'>
         确认信息
+        </button>
+        <button wx:if="{{!redirectURL && state==='VERIFIED'}}" class="cu-btn bg-red margin-tb-sm lg margin-top-xl" bindtap='confirm'>
+        返回行程信息
         </button>
         <button wx:if="{{state==='VERIFIED'}}" class="cu-btn bg-red margin-tb-sm lg margin-top-xl" bindtap='unSubmit'>
         重新审查

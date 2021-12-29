@@ -1,0 +1,24 @@
+<swiper 
+    indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoPlay}}"
+    interval="{{interval}}"
+    duration="{{duration}}"
+    circular="{{circular}}"
+    display-multiple-items="{{multiltemCount}}"
+    previous-margin="{{prevMargin}}"
+    next-margin="{{nextMargin}}"
+    vertical="{{vertical}}"
+    >
+    <swiper-item wx:for="{{imgUrls}}" wx:key="*this">
+        <image class="swiper-image" src="{{item}}"/>
+    </swiper-item>  
+</swiper>
+<view class="default">
+    <button class="default-btn cu-avatar round lg bg-grey margin-xs" wx:if="{{!avatarURL}}" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" style="margin-right:30rpx">
+        <text class="cuIcon-people"></text>
+    </button>
+    <image  wx:else class="cu-avatar round lg bg-grey margin-xs" src="{{avatarURL}}" style="margin-right:30rpx"/>
+    <view class="default-text text-blue" bindtap="onRegisterTap">
+        驾驶资格问认证
+    </view>
+</view>

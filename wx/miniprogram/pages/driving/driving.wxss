@@ -1,1 +1,48 @@
-/* pages/driving/driving.wxss */
+
+.container{
+     flex-direction: column-reverse;
+     width: 100%;
+     height: 100%;
+}
+
+.driving-data{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.driving-btn{
+    width: 80%;
+}
+
+#map{
+    width: 100%;
+    flex-grow: 1;
+}
+
+.cuIcon-timefill{
+    color:orange
+}
+
+.time{
+    display: flex;
+    margin-top: 20rpx;
+    margin-bottom: 10rpx;
+}
+
+.time-driven{
+    font-size: 60rpx;
+    margin-left: 20rpx;
+    font-weight: bold;
+}
+
+.cuIcon-timefill{
+    font-size: 60rpx;
+    margin-right: 10rpx;
+}
+
+page{
+    width: 100%;
+    height: 100%;
+}

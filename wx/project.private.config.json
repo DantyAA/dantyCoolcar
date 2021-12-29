@@ -23,6 +23,24 @@
           "pathName": "pages/lock/lock",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/driving/driving",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/myTrip/myTrip",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/myTrip/myTrip",
+          "query": "",
+          "scene": null
         }
       ]
     }

@@ -4,7 +4,9 @@ Page({
   /**
    * 页面的初始数据
    */
+  
   data: {
+    redirectURL:'',
     licImgURL:'',
     //licImgURL:"../../material/register/driving_license.jpeg",
     genders:['未知','男','女','不男不女','我不说'],
@@ -12,7 +14,21 @@ Page({
     date:"1995-05-03",
     lic_name:'',
     lic_number:'',
-    state: 'UNSUBMITTED' as 'UNSUBMITTED'|'PEDING'|'VERIFIED'
+    state: 'UNSUBMITTED' as 'UNSUBMITTED'|'PEDING'|'VERIFIED',
+
+    
+  },
+
+
+
+  onLoad(opt){
+    if (opt.redirect){
+      this.setData({
+        redirectURL:decodeURIComponent(opt.redirect)
+        
+      })
+      
+      }
   },
 
   onUploadLic(){
@@ -68,8 +84,13 @@ Page({
     })
   },
   confirm(){
-    wx.redirectTo({
-      url:"../lock/lock"
-    })
+    console.log(this.data.redirectURL)
+    if (this.data.redirectURL){
+      wx.redirectTo({
+        url:this.data.redirectURL
+      })
+    }else{
+      wx.navigateBack()
+    } 
   }
 })

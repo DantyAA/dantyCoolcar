@@ -1,4 +1,20 @@
 <!--pages/driving/driving.wxml-->
-<view >
+<view class="container">
+    <view class="driving-data">
+        <view class="time">
+            <view class="cuIcon-timefill"></view>
+            <text class="time-driven">{{elapsed}}</text>
+        </view>
+        <text class="driving-cost">费用：{{sents}}元</text>
+        
+        <button id = "driving-btn" class="cu-btn bg-red margin-tb-sm lg margin-top-xl round" style="width:80%">结束行程</button>
+    </view>
+    <map 
+    id="map" 
+    latitude="{{location.latitude}}"
+    longitude="{{location.longitude}}"
+    show-location
+    scale="{{scale}}"
+    />
     
 </view>

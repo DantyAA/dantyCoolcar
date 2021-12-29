@@ -1,5 +1,3 @@
-const app = getApp<IAppOption>()
-
 export function getSetting():Promise<WechatMiniprogram.GetSettingSuccessCallbackResult> {
     return new Promise((resolve, reject) => {
       wx.getSetting({
