@@ -24,6 +24,80 @@ page{
     margin-right: 50rpx;
 }
 
+.trip-state{
+    display: flex;
+    justify-content: space-between;
+}
+
 .default-text{
     font-size: 30rpx;
 }
+
+.scroll{
+    display: flex;
+    flex-direction: column;
+}
+
+.cu-bar{
+    display: flex;
+    flex-direction: column;
+    align-items: initial;
+}
+
+.trip-detail{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.detail-row{
+    display: flex;
+}
+
+.trip-sum{
+    align-items: center;
+    font-style: italic;
+}
+
+.field{
+    margin-right:30rpx;
+}
+
+.trip{
+    border-radius: 25;
+}
+
+.mytrips-heading{
+    position: absolute;
+    left: 50rpx;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.nav-container{
+    display: flex;
+}
+
+.nav-container swiper{
+    width: 200rpx;
+}
+
+.cur{
+    content: "";
+    width: 8rpx;
+    height: 30rpx;
+    border-radius: 10rpx 0 0 10rpx;
+    position: absolute;
+    background-color: currentColor;
+    top: 0;
+    right: 0rpx;
+    bottom: 0;
+    margin: auto;
+  }
+  
+
+  .nav .cu-item {
+      margin:initial;
+      padding: unset;
+      text-align: center;
+  }

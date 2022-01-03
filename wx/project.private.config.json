@@ -21,7 +21,7 @@
         {
           "name": "lock",
           "pathName": "pages/lock/lock",
-          "query": "",
+          "query": "car_id=demo_car",
           "scene": null
         },
         {

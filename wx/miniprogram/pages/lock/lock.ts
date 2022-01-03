@@ -1,5 +1,7 @@
 // lock/lock.ts
 
+import { routing } from "../../utils/routing"
+
 const shareLocationKey = "share_location"
 Page({
 
@@ -11,8 +13,9 @@ Page({
     shareLocation:false,
   },
 
-  async onLoad(opt){
-    console.log("unlocking car",opt.car_id)
+  async onLoad(opt:Record<'car_id', string>){
+    const o:routing.LockOpts = opt
+    console.log("unlocking car",o.car_id)
     this.setData({
       avatarURL:wx.getStorageSync("userinfo").avatarUrl || false,
       shareLocation: wx.getStorageSync(shareLocationKey) || false
@@ -59,7 +62,10 @@ Page({
 
         setTimeout(()=>{
           wx.redirectTo({
-            url:`../driving/driving?trip_id=${tripID}`,
+            //url:`../driving/driving?trip_id=${tripID}`,
+            url: routing.drving({
+              trip_id:tripID,
+            }),
             complete:()=>{
               wx.hideLoading()
             }

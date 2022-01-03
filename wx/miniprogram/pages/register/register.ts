@@ -1,3 +1,5 @@
+import { routing } from "../../utils/routing"
+
 // register/register.ts
 Page({
 
@@ -21,10 +23,11 @@ Page({
 
 
 
-  onLoad(opt){
-    if (opt.redirect){
+  onLoad(opt: Record<'redirect',string>){
+    const o: routing.RegisterOpts = opt
+    if (o.redirect){
       this.setData({
-        redirectURL:decodeURIComponent(opt.redirect)
+        redirectURL:decodeURIComponent(o.redirect)
         
       })
       

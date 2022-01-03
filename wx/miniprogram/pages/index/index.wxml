@@ -12,7 +12,10 @@ markers="{{markers}}"
         <cover-image src="{{avatarURL?avatarURL:'../../material/index_map/user_button.png'}}" class="round" style="width:60rpx;height:60rpx" bindtap="onMyTripsTap"></cover-image>
         <cover-image src="../../material/index_map/current_position.png" style="width:60rpx;height:60rpx" bindtap="getLocation"></cover-image>
     </cover-view>
+
+
 </map>
 <view class="btn-cationer bg-grey round" bindtap="onScanTap">
     扫   码
 </view>
+<modal id ="licModal" tital="身份认证" contents="需要身份认证才能租车"></modal>

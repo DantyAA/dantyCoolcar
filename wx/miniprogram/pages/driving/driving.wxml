@@ -7,7 +7,7 @@
         </view>
         <text class="driving-cost">费用：{{sents}}元</text>
         
-        <button id = "driving-btn" class="cu-btn bg-red margin-tb-sm lg margin-top-xl round" style="width:80%">结束行程</button>
+        <button id = "driving-btn" class="cu-btn bg-red margin-tb-sm lg margin-top-xl round" style="width:80%" bindtap="onEndTrip">结束行程</button>
     </view>
     <map 
     id="map" 

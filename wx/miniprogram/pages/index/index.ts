@@ -1,4 +1,7 @@
 // index.ts
+
+import { routing } from "../../utils/routing"
+
 // 获取应用实例
 const app = getApp<IAppOption>()
 
@@ -44,7 +47,8 @@ Page({
         height:50
       }
     ],
-    avatarURL:''
+    avatarURL:'',
+
   },
   // 事件处理函数
   bindViewTap() {
@@ -63,7 +67,6 @@ Page({
 
   onShow(){
     if (wx.getStorageSync("userinfo").avatarUrl){
-      console.log("112233")
       this.setData({
         avatarURL:wx.getStorageSync("userinfo").avatarUrl || false
       })
@@ -100,16 +103,24 @@ Page({
   
 
   onScanTap(){
-    wx.scanCode({ 
-      success: res=>{
+    wx.scanCode({
+      success:async ()=>{
+        await this.selectComponent('#licModal').showModal()
         const carID = 'car123'
-        const redirectURL = `../lock/lock?car_id=${carID}`
+        const redirectURL = routing.lock({
+          car_id:carID
+          })
         wx.navigateTo({
-          url:`../register/register?redirect=${encodeURIComponent(redirectURL)}`
+          //url:`../register/register?redirect=${encodeURIComponent(redirectURL)}`
+          url: routing.register({
+            redirectURL:redirectURL
+          })
         })
-      },
-      fail:console.log
-      
+
+        this.setData({
+          showModal:true
+        })
+      }
     })
   },
 
@@ -127,5 +138,5 @@ Page({
     wx.navigateTo({
       url:"../myTrip/myTrip",
     })
-  }
+  },
 })
