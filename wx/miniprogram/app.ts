@@ -16,7 +16,16 @@ App<IAppOption>({
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    
+    wx.request({
+      url:"http://localhost:8080/trip/trips555",
+      method:"GET",
+      success:res=>{
+        const getTripResp = res.data
+        getTripResp
+      },
+      fail:console.error
+    })
     // 登录
     wx.login({
       success: res => {
@@ -28,8 +37,6 @@ App<IAppOption>({
   if (setting.authSetting['scope.userInfo']){
     const userInfoRes = await getUserProfile()
     resolveUserInfo(userInfoRes.userInfo)
-    console.log()
-
   }
   },
   resolveUserInfo(userInfo: WechatMiniprogram.UserInfo) {
