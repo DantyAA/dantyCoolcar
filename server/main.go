@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
+	"google.golang.org/protobuf/encoding/protojson"
 	"log"
 	"net"
 	"net/http"
@@ -30,7 +31,14 @@ func startGRPCGAtway()  {
 	c ,cancel := context.WithCancel(c)
 	defer cancel()
 
-	mux := runtime.NewServeMux()
+	mux := runtime.NewServeMux(runtime.WithMarshalerOption(
+		runtime.MIMEWildcard,&runtime.JSONPb{
+			MarshalOptions: protojson.MarshalOptions{
+				UseEnumNumbers: true,
+				UseProtoNames: true,
+			},
+		},
+		))
 	err := trippb.RegisterTripServiceHandlerFromEndpoint(
 		c,
 		//mux: multiplexer

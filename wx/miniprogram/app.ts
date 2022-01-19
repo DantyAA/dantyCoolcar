@@ -1,5 +1,6 @@
 // app.ts
 
+import { IAppOption } from "./appoption"
 import { getSetting, getUserProfile } from "./utils/wxapi"
 let resolveUserInfo: (value?: WechatMiniprogram.UserInfo | PromiseLike<WechatMiniprogram.UserInfo> | undefined) => void
 let rejectUserInfo: (reason?: any) => void
@@ -22,7 +23,7 @@ App<IAppOption>({
       method:"GET",
       success:res=>{
         const getTripResp = res.data
-        getTripResp
+        console.log(getTripResp)
       },
       fail:console.error
     })

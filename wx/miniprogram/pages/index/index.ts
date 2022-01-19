@@ -1,9 +1,6 @@
-// index.ts
-
 import { routing } from "../../utils/routing"
 
 // 获取应用实例
-const app = getApp<IAppOption>()
 
 Page({
   data: {

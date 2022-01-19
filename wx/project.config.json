@@ -3,10 +3,6 @@
   "packOptions": {
     "ignore": []
   },
-  "miniprogramRoot": "miniprogram/",
-  "compileType": "miniprogram",
-  "libVersion": "2.15.0",
-  "projectname": "coolcar",
   "setting": {
     "urlCheck": false,
     "es6": true,
@@ -47,8 +43,66 @@
       "typescript"
     ]
   },
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
+  "compileType": "miniprogram",
+  "libVersion": "2.15.0",
   "appid": "wxac04b62e76fc56fe",
-  "condition": {}
+  "projectname": "coolcar",
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionTemplateRoot": "",
+  "watchOptions": {
+    "ignore": []
+  },
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "scripts": {
+    "beforeCompile": "npm run",
+    "beforePreview": "npm run",
+    "beforeUpload": "npm run"
+  },
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "register",
+          "pathName": "pages/register/register",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "lock",
+          "pathName": "pages/lock/lock",
+          "query": "car_id=demo_car",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/driving/driving",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/myTrip/myTrip",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/myTrip/myTrip",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
 }
