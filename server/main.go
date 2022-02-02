@@ -34,8 +34,8 @@ func startGRPCGAtway()  {
 	mux := runtime.NewServeMux(runtime.WithMarshalerOption(
 		runtime.MIMEWildcard,&runtime.JSONPb{
 			MarshalOptions: protojson.MarshalOptions{
-				UseEnumNumbers: true,
 				UseProtoNames: true,
+				UseEnumNumbers: true,
 			},
 		},
 		))
