@@ -1,0 +1,4 @@
+
+**/wx/miniprogram/**/*.js
+miniprogram_npm
+.idea
