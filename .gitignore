@@ -1,4 +1,6 @@
 
 **/wx/miniprogram/**/*.js
+!**/wx/miniprogram/service/proto_gen/*.js
 miniprogram_npm
-.idea
+**/wx/miniprogram/service/.idea
+**/wx/miniprogram/service/.history

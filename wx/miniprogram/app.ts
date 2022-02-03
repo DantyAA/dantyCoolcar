@@ -18,26 +18,12 @@ App<IAppOption>({
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
+    console.log(logs,Date.now())
     
-    wx.request({
-      url:"http://localhost:8080/trip/trips555",
-      method:"GET",
-      success:res=>{
-        const getTripResp = coolcar.GetTripResponse.fromObject(camelcaseKeys(
-          res.data as object,{
-            deep:true
-          }
-        )
-      )
-        console.log(getTripResp)
-        console.log("status is ",coolcar.TripStatus[getTripResp.trip?.status!]) 
-      },
-      fail:console.error
-    })
     // 登录
     wx.login({
       success: res => {
-        console.log(res)
+        console.log(res) 
     }
   })
   const setting= await getSetting()
