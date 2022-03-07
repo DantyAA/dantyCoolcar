@@ -1,6 +1,7 @@
 
 **/wx/miniprogram/**/*.js
-!**/wx/miniprogram/service/proto_gen/*.js
-miniprogram_npm
-**/wx/miniprogram/service/.idea
-**/wx/miniprogram/service/.history
+!**/wx/miniprogram/service/proto_gen/**/*.js
+.idea
+.history
+private.key
+public.key

@@ -56,58 +56,58 @@ export namespace auth {
             public toJSON(): { [k: string]: any };
         }
 
-        /** Properties of a LoginRespone. */
-        interface ILoginRespone {
+        /** Properties of a LoginResponse. */
+        interface ILoginResponse {
 
-            /** LoginRespone accessToken */
+            /** LoginResponse accessToken */
             accessToken?: (string|null);
 
-            /** LoginRespone expiresIn */
+            /** LoginResponse expiresIn */
             expiresIn?: (number|null);
         }
 
-        /** Represents a LoginRespone. */
-        class LoginRespone implements ILoginRespone {
+        /** Represents a LoginResponse. */
+        class LoginResponse implements ILoginResponse {
 
             /**
-             * Constructs a new LoginRespone.
+             * Constructs a new LoginResponse.
              * @param [properties] Properties to set
              */
-            constructor(properties?: auth.v1.ILoginRespone);
+            constructor(properties?: auth.v1.ILoginResponse);
 
-            /** LoginRespone accessToken. */
+            /** LoginResponse accessToken. */
             public accessToken: string;
 
-            /** LoginRespone expiresIn. */
+            /** LoginResponse expiresIn. */
             public expiresIn: number;
 
             /**
-             * Decodes a LoginRespone message from the specified reader or buffer.
+             * Decodes a LoginResponse message from the specified reader or buffer.
              * @param reader Reader or buffer to decode from
              * @param [length] Message length if known beforehand
-             * @returns LoginRespone
+             * @returns LoginResponse
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): auth.v1.LoginRespone;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): auth.v1.LoginResponse;
 
             /**
-             * Creates a LoginRespone message from a plain object. Also converts values to their respective internal types.
+             * Creates a LoginResponse message from a plain object. Also converts values to their respective internal types.
              * @param object Plain object
-             * @returns LoginRespone
+             * @returns LoginResponse
              */
-            public static fromObject(object: { [k: string]: any }): auth.v1.LoginRespone;
+            public static fromObject(object: { [k: string]: any }): auth.v1.LoginResponse;
 
             /**
-             * Creates a plain object from a LoginRespone message. Also converts values to other types if specified.
-             * @param message LoginRespone
+             * Creates a plain object from a LoginResponse message. Also converts values to other types if specified.
+             * @param message LoginResponse
              * @param [options] Conversion options
              * @returns Plain object
              */
-            public static toObject(message: auth.v1.LoginRespone, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: auth.v1.LoginResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
-             * Converts this LoginRespone to JSON.
+             * Converts this LoginResponse to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -127,7 +127,7 @@ export namespace auth {
             /**
              * Calls Login.
              * @param request LoginRequest message or plain object
-             * @param callback Node-style callback called with the error, if any, and LoginRespone
+             * @param callback Node-style callback called with the error, if any, and LoginResponse
              */
             public login(request: auth.v1.ILoginRequest, callback: auth.v1.AuthService.LoginCallback): void;
 
@@ -136,7 +136,7 @@ export namespace auth {
              * @param request LoginRequest message or plain object
              * @returns Promise
              */
-            public login(request: auth.v1.ILoginRequest): Promise<auth.v1.LoginRespone>;
+            public login(request: auth.v1.ILoginRequest): Promise<auth.v1.LoginResponse>;
         }
 
         namespace AuthService {
@@ -144,9 +144,9 @@ export namespace auth {
             /**
              * Callback as used by {@link auth.v1.AuthService#login}.
              * @param error Error, if any
-             * @param [response] LoginRespone
+             * @param [response] LoginResponse
              */
-            type LoginCallback = (error: (Error|null), response?: auth.v1.LoginRespone) => void;
+            type LoginCallback = (error: (Error|null), response?: auth.v1.LoginResponse) => void;
         }
     }
 }
