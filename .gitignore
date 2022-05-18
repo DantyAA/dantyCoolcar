@@ -3,5 +3,5 @@
 !**/wx/miniprogram/service/proto_gen/**/*.js
 .idea
 .history
-private.key
+server/auth/private.key
 public.key

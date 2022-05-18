@@ -2,15 +2,14 @@
 import camelcaseKeys from "camelcase-keys"
 import { IAppOption } from "./appoption"
 import { auth } from "./service/proto_gen/auth/auth_pb"
+import { rental } from "./service/proto_gen/rental/rental_pb"
 import { getSetting, getUserProfile } from "./utils/wxapi"
 let resolveUserInfo: (value?: WechatMiniprogram.UserInfo | PromiseLike<WechatMiniprogram.UserInfo> | undefined) => void
-let rejectUserInfo: (reason?: any) => void
 
 App<IAppOption>({
   globalData: {
-    userInfo: new Promise((resolve, reject) => {
+    userInfo: new Promise((resolve) => {
       resolveUserInfo = resolve
-      rejectUserInfo = reject
     })
   },
   async onLaunch() {
@@ -35,7 +34,18 @@ App<IAppOption>({
             )
 
             console.log(loginResp)
-
+            wx.request({
+              url:"http://localhost:8080/v1/rental/trip",
+              method:'POST',
+              data:{
+                  start:'abc',
+                  carId:'123',
+                  toJSON:
+              } as rental.v1.CreateTripRequest,
+              header:{
+                authorization: 'Bearer '+ loginResp.accessToken
+              }
+            })
           },
           fail: console.error
 

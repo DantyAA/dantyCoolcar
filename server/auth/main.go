@@ -9,29 +9,25 @@ import (
 	"google.golang.org/grpc"
 	"io/ioutil"
 	"log"
-	"net"
 	"os"
 	authpb "program/auth/api/gen/v1"
-	"program/auth/auth/dao"
 	"program/auth/auth/wechat"
+	"program/auth/dao"
 	"program/auth/token"
+	"program/shared/server"
 	"time"
 
 	"program/auth/auth"
 )
 
 func main() {
-	logger, err := newZapLogger()
+	logger, err := server.NewZapLogger()
 	if err != nil {
 		log.Fatalf("connot create logger: %v", err)
 	}
-	lis, err := net.Listen("tcp", ":8081")
-	if err != nil {
-		logger.Fatal("connot listen", zap.Error(err))
-	}
 
 	c := context.Background()
-	mongoClient, err := mongo.Connect(c, options.Client().ApplyURI("mongodb://admin:123456@localhost:27017/?authSource=admin&readPreference=primary&ssl=false"))
+	mongoClient, err := mongo.Connect(c, options.Client().ApplyURI("mongodb://admin:admin@localhost:27017/?authSource=admin&readPreference=primary&ssl=false"))
 	if err != nil {
 		logger.Fatal("cannot connect mongodb", zap.Error(err))
 	}
@@ -50,26 +46,22 @@ func main() {
 	if err != nil {
 		logger.Fatal("cannot parse private key", zap.Error(err))
 	}
+	logger.Sugar().Fatal(server.RunGRPCServer(&server.GRPCConfig{
+		Name:   "auth",
+		Addr:   ":8081",
+		Logger: logger,
+		RegisterFunc: func(s *grpc.Server) {
+			authpb.RegisterAuthServiceServer(s, &auth.Service{
+				OpenIDResolver: &wechat.Service{
+					AppID:     "wxac04b62e76fc56fe",
+					AppSecret: "12c16bd4cd42242bfbbaa13273461f50",
+				},
+				Mongo:          dao.NewMongo(mongoClient.Database("coolcar")),
+				Logger:         logger,
+				TokenExpire:    2 * time.Hour,
+				TokenGenerator: token.NewJWTTokenGEn("coolcar/suth", privKey),
+			})
 
-	s := grpc.NewServer()
-	authpb.RegisterAuthServiceServer(s, &auth.Service{
-		OpenIDResolver: &wechat.Service{
-			AppID:     "wxac04b62e76fc56fe",
-			AppSecret: "12c16bd4cd42242bfbbaa13273461f50",
 		},
-		Mongo:          dao.NewMongo(mongoClient.Database("coolcar")),
-		Logger:         logger,
-		TokenExpire:    2 * time.Hour,
-		TokenGenerator: token.NewJWTTokenGEn("coolcar/suth", privKey),
-	})
-
-	err = s.Serve(lis)
-	logger.Fatal("cannor server", zap.Error(err))
-}
-
-func newZapLogger() (*zap.Logger, error) {
-	cfg := zap.NewDevelopmentConfig()
-	cfg.EncoderConfig.TimeKey = ""
-	return cfg.Build()
-
+	}))
 }
